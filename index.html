@@ -28,13 +28,13 @@
                   <div class="row">
                     <div class="quentity">
                       <div class="row">
-                        <button>-</button>
-                        <p>1</p>
-                        <button>+</button>
+                        <button id="phone-diccrease">-</button>
+                        <p><span id="phone-count">1</span></p>
+                        <button id="phone-increase">+</button>
                       </div>
                     </div>
                     <div class="price">
-                      <p>$ <span>1299</span></p>
+                      <p>$ <span id="phone-price">1299</span></p>
                     </div>
                     <div class="cancel">
                       <p>cancel</p>
@@ -60,13 +60,13 @@
                   <div class="row">
                     <div class="quentity">
                       <div class="row">
-                        <button>-</button>
-                        <p>1</p>
-                        <button>+</button>
+                        <button id="case-diccrease">-</button>
+                        <p><span id="case-count">1</span></p>
+                        <button id="case-increase">+</button>
                       </div>
                     </div>
                     <div class="price">
-                      <p>$ <span>1569</span></p>
+                      <p>$ <span id="case-price">1569</span></p>
                     </div>
                     <div class="cancel">
                       <p>cancel</p>
@@ -87,11 +87,11 @@
                 </div>
 
                 <div class="total-amount">
-                    <h4>$ 2598</h4>
+                    <h4>$ <span id="price">00</span></h4>
                     <br>
-                    <h4>$ 60</h4>
+                    <h4>$ <span id="vat-price">60</span></h4>
                    <br>
-                    <h4>$ 2658</h4>
+                    <h4>$ <span id="total-price">2658</span> </h4>
                 </div>
                 </div>
               </div>
@@ -104,5 +104,72 @@
         </div>
       </div>
     </div>
+
+    <script>
+      document.getElementById('case-increase').addEventListener('click', function(){
+       const  caseInput = document.getElementById('case-count');
+       const caseCount = parseInt(caseInput.innerText);
+       const caseNewCount = caseCount + 1;
+       caseInput.innerText = caseNewCount;
+       const caseTotal = caseNewCount* 1569;
+       document.getElementById("case-price").innerText = caseTotal;
+
+       const price = document.getElementById("price");
+       const inputPrice = caseTotal+ document.getElementById('price');
+       const totalPrice = parseFloat(inputPrice);
+       price.innerText = totalPrice;
+
+      })
+      document.getElementById("case-diccrease").addEventListener('click',function(){
+        const caseInput= document.getElementById("case-count");
+        const caseCount = parseInt(caseInput.innerText);
+        const caseNewCount = caseCount-1;
+        caseInput.innerText = caseNewCount;
+        document.getElementById("case-price");
+        const caseTotal = caseNewCount *1569;
+        document.getElementById("case-price").innerText = caseTotal;
+
+        const price = document.getElementById("price");
+       const inputPrice = caseTotal+ document.getElementById('price');
+       const totalPrice = parseFloat(inputPrice);
+       price.innerText = totalPrice;
+
+
+      })
+
+      document.getElementById('phone-increase').addEventListener("click", function(){
+        const phoneInput = document.getElementById("phone-count");
+        const phoneCount = parseInt(phoneInput.innerText);
+        const PhoneNewCount = phoneCount+ 1;
+        phoneInput.innerText= PhoneNewCount;
+
+        const phonePrice = PhoneNewCount* 1299;
+        document.getElementById('phone-price').innerText = phonePrice;
+
+        const price = document.getElementById("price");
+       const inputPrice = phonePrice+ document.getElementById('price');
+       const totalPrice = parseFloat(inputPrice);
+       price.innerText = totalPrice;
+      })
+     
+      document.getElementById('phone-diccrease').addEventListener('click', function(){
+        const phoneInput = document.getElementById('phone-count');
+        const phoneCount = parseInt(phoneInput.innerText);
+        const PhoneNewCount = phoneCount-1;
+        phoneInput.innerText= PhoneNewCount;
+        const phonePrice = PhoneNewCount * 1299;
+        document.getElementById('phone-price').innerText = phonePrice;
+
+        const price = document.getElementById("price");
+       const inputPrice = phonePrice+ document.getElementById('price');
+       const totalPrice = parseFloat(inputPrice);
+       price.innerText = totalPrice;
+      })
+
+
+
+
+
+    </script>
   </body>
 </html>
